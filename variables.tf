@@ -5,7 +5,7 @@ variable "project_id" {
 
 variable "region" {
   type        = string
-  default     = "asia-southeast1"
+  default     = "asia-southeast2"
   description = "Region of the project that is hosted."
 }
 
@@ -13,12 +13,6 @@ variable "zone" {
   type        = string
   default     = "a"
   description = "Zone of the project that is hosted."
-}
-
-variable "ip_cidr_range" {
-  type        = list(string)
-  default     = ["10.0.0.0/24"]
-  description = "ip range that will be used for the vpc"
 }
 
 variable "bucket_location" {
@@ -39,4 +33,9 @@ variable "service_list" {
     "stackdriver.googleapis.com",
     "sqladmin.googleapis.com",
   ]
+}
+
+variable "user_grant_map" {
+  type        = map(string)
+  description = "IAM Grant member non authoritative"
 }

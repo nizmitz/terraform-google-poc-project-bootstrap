@@ -3,25 +3,6 @@ locals {
 }
 
 ################################################################################
-#                                Network Segment                               #
-################################################################################
-
-resource "google_compute_network" "this" {
-  name                    = "vpc"
-  project                 = var.project_id
-  auto_create_subnetworks = false
-  depends_on              = [google_project_service.this]
-}
-
-resource "google_compute_subnetwork" "this" {
-  name          = "subnet"
-  project       = var.project_id
-  ip_cidr_range = var.ip_cidr_range[0]
-  region        = var.region
-  network       = google_compute_network.this.self_link
-}
-
-################################################################################
 #                            Project API Segment                               #
 ################################################################################
 
@@ -61,4 +42,16 @@ resource "google_storage_bucket" "terraform_state" {
   versioning {
     enabled = true
   }
+}
+
+
+################################################################################
+#                            GCS Buckets Segment                               #
+################################################################################
+
+resource "google_project_iam_member" "project" {
+  for_each = var.user_grant_map
+  project  = var.project_id
+  role     = each.value
+  member   = each.key
 }

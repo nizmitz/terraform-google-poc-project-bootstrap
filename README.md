@@ -26,8 +26,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [google_compute_network.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network) | resource |
-| [google_compute_subnetwork.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork) | resource |
+| [google_project_iam_member.project](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
 | [google_project_service.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
 | [google_storage_bucket.terraform_state](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket) | resource |
 | [random_string.terraform_state](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
@@ -37,10 +36,10 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_bucket_location"></a> [bucket\_location](#input\_bucket\_location) | Terraform State bucket location | `string` | `"ASIA-SOUTHEAST2"` | no |
-| <a name="input_ip_cidr_range"></a> [ip\_cidr\_range](#input\_ip\_cidr\_range) | ip range that will be used for the vpc | `list(string)` | <pre>[<br/>  "10.0.0.0/24"<br/>]</pre> | no |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | Project id of the project that holds the network. | `string` | n/a | yes |
-| <a name="input_region"></a> [region](#input\_region) | Region of the project that is hosted. | `string` | `"asia-southeast1"` | no |
+| <a name="input_region"></a> [region](#input\_region) | Region of the project that is hosted. | `string` | `"asia-southeast2"` | no |
 | <a name="input_service_list"></a> [service\_list](#input\_service\_list) | default enabled services | `set(string)` | <pre>[<br/>  "iam.googleapis.com",<br/>  "compute.googleapis.com",<br/>  "container.googleapis.com",<br/>  "iamcredentials.googleapis.com",<br/>  "recommender.googleapis.com",<br/>  "storage-api.googleapis.com",<br/>  "stackdriver.googleapis.com",<br/>  "sqladmin.googleapis.com"<br/>]</pre> | no |
+| <a name="input_user_grant_map"></a> [user\_grant\_map](#input\_user\_grant\_map) | IAM Grant member non authoritative | `map(string)` | n/a | yes |
 | <a name="input_zone"></a> [zone](#input\_zone) | Zone of the project that is hosted. | `string` | `"a"` | no |
 
 ## Outputs
