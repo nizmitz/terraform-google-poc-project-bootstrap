@@ -24,7 +24,8 @@ variable "bucket_location" {
 variable "service_list" {
   type        = set(string)
   description = "default enabled services"
-  default = ["iam.googleapis.com",
+  default = [
+    "iam.googleapis.com",
     "compute.googleapis.com",
     "container.googleapis.com",
     "iamcredentials.googleapis.com",

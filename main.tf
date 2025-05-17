@@ -46,7 +46,7 @@ resource "google_storage_bucket" "terraform_state" {
 
 
 ################################################################################
-#                            GCS Buckets Segment                               #
+#                                 Grants Segment                               #
 ################################################################################
 
 resource "google_project_iam_member" "project" {
