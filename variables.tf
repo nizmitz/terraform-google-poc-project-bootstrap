@@ -5,7 +5,7 @@ variable "project_id" {
 
 variable "region" {
   type        = string
-  default     = "asia-southeast2"
+  default     = "asia-southeast1"
   description = "Region of the project that is hosted."
 }
 
@@ -17,7 +17,7 @@ variable "zone" {
 
 variable "bucket_location" {
   type        = string
-  default     = "ASIA-SOUTHEAST2"
+  default     = "ASIA-SOUTHEAST1"
   description = "Terraform State bucket location"
 }
 
@@ -33,10 +33,16 @@ variable "service_list" {
     "storage-api.googleapis.com",
     "stackdriver.googleapis.com",
     "sqladmin.googleapis.com",
+    "servicenetworking.googleapis.com",
+    "billingbudgets.googleapis.com",
+    "dns.googleapis.com",
+    "cloudresourcemanager.googleapis.com",
+    "secretmanager.googleapis.com"
   ]
 }
 
 variable "user_grant_map" {
   type        = map(string)
   description = "IAM Grant member non authoritative"
+  default     = {}
 }
